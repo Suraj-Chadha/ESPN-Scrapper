@@ -2,7 +2,7 @@ const url = 'https://www.espncricinfo.com/series/indian-premier-league-2022-1298
 
 const request = require("request");
 const cheerio = require("cheerio");
-const {getAllScoreCardLinks} = require("./getAllMatchSummaryLinks"); 
+const {getAllScoreCardLinks} = require("./getAllMatchScoreCardLinks"); 
 
 request(url,cb);
 function cb(err,res,body){
