@@ -53,6 +53,13 @@ function getAllDetails(url){
                     let scoreCardArr = $(trArray1[i]).find('td');
                     // console.log(scoreCardArr.length);
                     let playerName = $(scoreCardArr[0]).text();
+                    if(playerName.includes('(')){
+                        // console.log(true);
+                        playerName = playerName.split('(')[0];
+                    }
+                    if(playerName.includes('†')){
+                        playerName = playerName.split('†')[0];
+                    }
                     let runs = $(scoreCardArr[2]).text();
                     let balls = $(scoreCardArr[3]).text()
                     let numOf4s= $(scoreCardArr[5]).text();
@@ -72,11 +79,12 @@ function getAllDetails(url){
     }
     function processInformation(Date,Venue,ownTeam,opponentTeam,res,playerName,runs,balls,numOf4s,numOf6s,sr){
         // console.log(`PlayerName -> ${playerName} runs -> ${runs} balls -> ${balls} numOf4's -> ${numOf4s} numOf6's -> ${numOf6s} StrikeRate -> ${sr}`);
-        // console.log(teamNames1);
+        console.log(playerName);
         let teamNamePath = `${__dirname}/IPL/${ownTeam}`;
         if(!fs.existsSync(teamNamePath)){
             fs.mkdirSync(teamNamePath);
         }
+        
     }
 }
 

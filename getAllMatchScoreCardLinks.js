@@ -24,7 +24,7 @@ function getAllScoreCardLinks(url){
             let fullLink = `https://www.espncricinfo.com${relativeLink}`;
             // console.log(fullLink);
             getAllDetails(fullLink);
-            break;
+            // break;
         }
     }
 }
