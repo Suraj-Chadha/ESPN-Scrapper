@@ -3,7 +3,7 @@ const url = 'https://www.espncricinfo.com/series/indian-premier-league-2022-1298
 const request = require("request");
 const cheerio = require("cheerio");
 const {getAllScoreCardLinks} = require("./getAllMatchScoreCardLinks"); 
-
+const fs = require("fs");
 request(url,cb);
 function cb(err,res,body){
     if(err){
@@ -46,4 +46,9 @@ function getMatchResultLinks(html){
     let fullLink = `https://www.espncricinfo.com${relativeLink}`;
     // console.log(fullLink);
     getAllScoreCardLinks(fullLink);
+}
+let pathIPL = `${process.cwd()}/IPL`;
+console.log(pathIPL);
+if(!fs.existsSync(pathIPL)){
+    fs.mkdirSync(pathIPL);
 }
